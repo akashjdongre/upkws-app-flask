@@ -9,7 +9,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
   ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
-  IMAGE_TAG: ${{ github.sha }}       # unique tag per commit
+  IMAGE_TAG: ${{ github.sha }}
 
 jobs:
   # ─── CI: Build & Push to ECR ─────────────────────────────
@@ -33,11 +33,11 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build and push image to ECR
+        id: build-image
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-        id: build-image
 
   # ─── CD: Deploy to ECS ───────────────────────────────────
   deploy:
@@ -79,10 +79,17 @@ jobs:
           container-name: ${{ secrets.CONTAINER_NAME }}
           image: ${{ steps.set-image.outputs.image }}
 
+      # Fix: strip fields unsupported by older SDK versions
+      - name: Strip unsupported fields from task definition
+        run: |
+          jq 'del(.enableFaultInjection)' \
+            ${{ steps.task-def.outputs.task-definition }} \
+            > task-def-clean.json
+
       - name: Deploy updated task definition to ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2   # Fix: upgraded from v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: task-def-clean.json                    # Fix: use stripped file
           service: ${{ secrets.ECS_SERVICE }}
           cluster: ${{ secrets.ECS_CLUSTER }}
-          wait-for-service-stability: true   # waits until deploy is complete
+          wait-for-service-stability: true
