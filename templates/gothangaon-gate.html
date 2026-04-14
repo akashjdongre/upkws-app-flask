@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gothangaon Gate – UPKWS Jungle Safari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep:#1a2e12; --green-dark:#243d18; --green-mid:#3b5e28; --green-light:#5a8a3a;
+      --amber:#c8902a; --amber-light:#e8b050; --cream:#f5efe0; --cream-dark:#e8dfc8;
+      --sand:#d4b896; --white:#fdf9f2; --text-dark:#1a1a0e; --text-body:#3a3a2a;
+      --font-display:'Playfair Display',Georgia,serif; --font-body:'Raleway',sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--text-body); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; background: rgba(26,46,18,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,144,42,0.3); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--amber-light); }
+    .nav-logo span { display: block; font-size: 0.65rem; font-weight: 400; color: var(--sand); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--cream); font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-links .btn-book { background: var(--amber); color: var(--green-deep); padding: 0.5rem 1.3rem; border-radius: 2px; font-weight: 700; }
+    .gate-hero { position: relative; height: 70vh; min-height: 480px; display: flex; align-items: flex-end; padding: 5% 5% 4%; overflow: hidden; }
+    .gate-hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,22,6,0.4) 0%, rgba(10,22,6,0.75) 100%), url('https://images.unsplash.com/photo-1547970049-b7b443b02af3?w=1600&q=80') center/cover no-repeat; }
+    .gate-hero-content { position: relative; color: var(--white); }
+    .gate-breadcrumb { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber-light); margin-bottom: 1rem; }
+    .gate-breadcrumb a { color: var(--sand); }
+    .gate-hero-title { font-family: var(--font-display); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+    .gate-hero-sub { font-size: 1rem; opacity: 0.85; max-width: 520px; line-height: 1.7; }
+    .gate-content { max-width: 1100px; margin: 0 auto; padding: 80px 5%; }
+    .gate-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+    .section-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); font-weight: 600; margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.5rem); font-weight: 700; color: var(--green-deep); margin-bottom: 1rem; }
+    .section-divider { width: 48px; height: 3px; background: var(--amber); margin: 1rem 0 1.5rem; border-radius: 2px; }
+    .gate-body p { line-height: 1.85; color: var(--text-body); margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .gate-body h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--green-deep); margin: 2rem 0 0.8rem; }
+    .info-card { background: var(--green-deep); border-radius: 2px; padding: 2rem; color: var(--cream); position: sticky; top: 100px; }
+    .info-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--amber-light); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(200,144,42,0.3); padding-bottom: 1rem; }
+    .info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row span:first-child { color: var(--sand); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; }
+    .info-row span:last-child { color: var(--cream); font-weight: 500; text-align: right; }
+    .book-btn { display: block; margin-top: 1.5rem; background: var(--amber); color: var(--green-deep); text-align: center; padding: 0.9rem; font-weight: 700; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .book-btn:hover { background: var(--amber-light); }
+    .wildlife-strip { background: var(--cream); padding: 60px 5%; }
+    .wildlife-strip-inner { max-width: 1100px; margin: 0 auto; }
+    .species-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2rem; }
+    .species-tag { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 2px; padding: 1rem; text-align: center; font-size: 0.82rem; color: var(--green-deep); font-weight: 600; }
+    .species-tag .emoji { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
+    .tips-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+    .tip-card { border-left: 3px solid var(--amber); padding: 1.2rem 1.5rem; background: var(--cream); border-radius: 0 2px 2px 0; }
+    .tip-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.4rem; }
+    .tip-card p { font-size: 0.8rem; color: var(--text-body); line-height: 1.6; }
+    footer { background: var(--green-deep); border-top: 1px solid rgba(200,144,42,0.25); padding: 40px 5%; text-align: center; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .footer-links a { color: var(--sand); font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    footer p { color: var(--sand); font-size: 0.78rem; }
+    @media(max-width:760px) { .gate-grid { grid-template-columns: 1fr; } .info-card { position: static; } .species-grid, .tips-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">UPKWS<span>Jungle Safari</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#book" class="btn-book">Book Safari</a>
+  </div>
+</nav>
+
+<div class="gate-hero">
+  <div class="gate-hero-bg"></div>
+  <div class="gate-hero-content">
+    <p class="gate-breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; <a href="index.html#gates">Safari Gates</a> &nbsp;›&nbsp; Gothangaon Gate</p>
+    <h1 class="gate-hero-title">Gothangaon Gate</h1>
+    <p class="gate-hero-sub">Gateway to lush green valleys and pristine watering holes — a haven for Gaur, wild dogs, and rare bird species.</p>
+  </div>
+</div>
+
+<div class="gate-content">
+  <div class="gate-grid">
+    <div class="gate-body">
+      <p class="section-label">Safari Entry Point</p>
+      <h2 class="section-title">About Gothangaon Gate</h2>
+      <div class="section-divider"></div>
+      <p>The Gothangaon Gate offers access to the more remote and less-frequented southern corridors of the Umred-Pauni-Karhandla Wildlife Sanctuary. Named after the village of Gothangaon in the Bhiwapur Taluka of Nagpur district, this entry point is celebrated for its serene and undisturbed jungle experience.</p>
+      <p>Unlike the busier Karhandla Gate, Gothangaon sees fewer safari vehicles, which means a quieter, more intimate wildlife experience. The trails weave through mixed deciduous forests with rich undergrowth, opening into meadows where large herds of Indian Gaur graze in the early hours of the morning.</p>
+      <p>The area around Gothangaon Gate also serves as a significant corridor connecting the UPKWS to other forest reserves in the Vidarbha landscape. This connectivity makes it an important zone for wildlife movement, and sightings of dispersing tigers and leopards have been reported with increasing frequency.</p>
+
+      <h3>Safari Experience</h3>
+      <p>The Gothangaon safari zone covers dense teak and bamboo forests, seasonal streams, and open grasslands. The tracks here are less defined, offering a more rugged and adventurous experience. Naturalist guides with deep knowledge of the local ecosystem accompany every safari, pointing out animal tracks, bird calls, and subtle signs of wildlife activity.</p>
+      <p>The gate is particularly well-regarded for birdwatching opportunities, with over 150 species recorded in the zone. Both morning and evening safaris run for approximately 3 hours each, covering the core safari routes within the buffer and core zones.</p>
+
+      <h3>Highlights of This Zone</h3>
+      <p>Gothangaon is most renowned for its Gaur herds — the world's largest bovine can be seen in groups of 20–40 animals near watering holes, especially in summer. The zone also harbours a healthy population of sambar deer, Indian hare, and porcupines. Wild dog packs have been regularly sighted along the forest edges at dusk.</p>
+      <p>For photography enthusiasts, the Gothangaon zone offers excellent light conditions in the evening, when the setting sun filters through the teak canopy to create stunning golden light across the grasslands.</p>
+
+      <h3>How to Get Here</h3>
+      <p>Gothangaon Gate is approximately 55 km from Nagpur via the Bhiwapur route. Shared jeeps and private taxis are available from Bhiwapur town. The forest department check-post is clearly marked, and permits must be obtained and verified before entry.</p>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <h3>Gate Information</h3>
+        <div class="info-row"><span>Location</span><span>Bhiwapur Taluka, Nagpur</span></div>
+        <div class="info-row"><span>Distance from Nagpur</span><span>~55 km</span></div>
+        <div class="info-row"><span>Morning Safari</span><span>5:30 AM – 9:00 AM</span></div>
+        <div class="info-row"><span>Evening Safari</span><span>3:30 PM – 6:30 PM</span></div>
+        <div class="info-row"><span>Closed</span><span>Thursdays & Monsoon</span></div>
+        <div class="info-row"><span>Vehicles</span><span>Open Gypsy (max 6)</span></div>
+        <div class="info-row"><span>Season</span><span>Oct – June</span></div>
+        <div class="info-row"><span>Famous For</span><span>Gaur & Birdlife</span></div>
+        <a href="index.html#book" class="book-btn">Book Safari at This Gate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wildlife-strip">
+  <div class="wildlife-strip-inner">
+    <p class="section-label">Wildlife Spotted Here</p>
+    <h2 class="section-title">Common Sightings at Gothangaon Gate</h2>
+    <div class="species-grid">
+      <div class="species-tag"><span class="emoji">🐂</span>Indian Gaur</div>
+      <div class="species-tag"><span class="emoji">🐯</span>Bengal Tiger</div>
+      <div class="species-tag"><span class="emoji">🦌</span>Sambar Deer</div>
+      <div class="species-tag"><span class="emoji">🐺</span>Wild Dogs</div>
+      <div class="species-tag"><span class="emoji">🦜</span>Malabar Pied Hornbill</div>
+      <div class="species-tag"><span class="emoji">🦦</span>Smooth-coated Otter</div>
+      <div class="species-tag"><span class="emoji">🐆</span>Leopard</div>
+      <div class="species-tag"><span class="emoji">🦅</span>Changeable Hawk-Eagle</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding: 60px 5%; background: var(--white);">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label">Safari Tips</p>
+    <h2 class="section-title">Before You Visit</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><h4>Best for Gaur Sightings</h4><p>Visit between February and May for the best chance of seeing large Gaur herds near the watering holes.</p></div>
+      <div class="tip-card"><h4>Bring Binoculars</h4><p>Gothangaon is excellent for birdwatching. A good pair of binoculars enhances your experience greatly.</p></div>
+      <div class="tip-card"><h4>Evening Light is Magic</h4><p>The evening safari here offers spectacular golden-hour photography opportunities in the open meadows.</p></div>
+      <div class="tip-card"><h4>Quieter Experience</h4><p>This gate sees fewer vehicles, so expect a more peaceful and undisturbed jungle environment.</p></div>
+      <div class="tip-card"><h4>Sturdy Footwear</h4><p>Trails can be uneven. Wear comfortable closed-toe shoes. Sandals and slippers are not recommended.</p></div>
+      <div class="tip-card"><h4>Pre-book Your Slot</h4><p>Online permits are mandatory. Walk-ins are rarely accommodated. Book at least 3–5 days in advance.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="karhandla-gate.html">Karhandla Gate</a>
+    <a href="gothangaon-gate.html">Gothangaon Gate</a>
+    <a href="pauni-gate.html">Pauni Gate</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#book">Book Safari</a>
+  </div>
+  <p>© 2025 UPKWS Jungle Safari. All rights reserved. | www.upkwsjunglesafari.com</p>
+</footer>
+</body>
+</html>

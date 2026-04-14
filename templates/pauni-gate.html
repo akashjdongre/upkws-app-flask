@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pauni Gate – UPKWS Jungle Safari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep:#1a2e12; --green-dark:#243d18; --green-mid:#3b5e28; --green-light:#5a8a3a;
+      --amber:#c8902a; --amber-light:#e8b050; --cream:#f5efe0; --cream-dark:#e8dfc8;
+      --sand:#d4b896; --white:#fdf9f2; --text-dark:#1a1a0e; --text-body:#3a3a2a;
+      --font-display:'Playfair Display',Georgia,serif; --font-body:'Raleway',sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--text-body); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; background: rgba(26,46,18,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,144,42,0.3); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--amber-light); }
+    .nav-logo span { display: block; font-size: 0.65rem; font-weight: 400; color: var(--sand); letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--cream); font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-links .btn-book { background: var(--amber); color: var(--green-deep); padding: 0.5rem 1.3rem; border-radius: 2px; font-weight: 700; }
+    .gate-hero { position: relative; height: 70vh; min-height: 480px; display: flex; align-items: flex-end; padding: 5% 5% 4%; overflow: hidden; }
+    .gate-hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,22,6,0.4) 0%, rgba(10,22,6,0.75) 100%), url('https://images.unsplash.com/photo-1504173010664-32509107de48?w=1600&q=80') center/cover no-repeat; }
+    .gate-hero-content { position: relative; color: var(--white); }
+    .gate-breadcrumb { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--amber-light); margin-bottom: 1rem; }
+    .gate-breadcrumb a { color: var(--sand); }
+    .gate-hero-title { font-family: var(--font-display); font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+    .gate-hero-sub { font-size: 1rem; opacity: 0.85; max-width: 520px; line-height: 1.7; }
+    .gate-content { max-width: 1100px; margin: 0 auto; padding: 80px 5%; }
+    .gate-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+    .section-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); font-weight: 600; margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.5rem); font-weight: 700; color: var(--green-deep); margin-bottom: 1rem; }
+    .section-divider { width: 48px; height: 3px; background: var(--amber); margin: 1rem 0 1.5rem; border-radius: 2px; }
+    .gate-body p { line-height: 1.85; color: var(--text-body); margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .gate-body h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--green-deep); margin: 2rem 0 0.8rem; }
+    .info-card { background: var(--green-deep); border-radius: 2px; padding: 2rem; color: var(--cream); position: sticky; top: 100px; }
+    .info-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--amber-light); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(200,144,42,0.3); padding-bottom: 1rem; }
+    .info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row span:first-child { color: var(--sand); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; }
+    .info-row span:last-child { color: var(--cream); font-weight: 500; text-align: right; }
+    .book-btn { display: block; margin-top: 1.5rem; background: var(--amber); color: var(--green-deep); text-align: center; padding: 0.9rem; font-weight: 700; font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .book-btn:hover { background: var(--amber-light); }
+    .wildlife-strip { background: var(--cream); padding: 60px 5%; }
+    .wildlife-strip-inner { max-width: 1100px; margin: 0 auto; }
+    .species-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2rem; }
+    .species-tag { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 2px; padding: 1rem; text-align: center; font-size: 0.82rem; color: var(--green-deep); font-weight: 600; }
+    .species-tag .emoji { font-size: 1.8rem; display: block; margin-bottom: 0.4rem; }
+    .tips-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+    .tip-card { border-left: 3px solid var(--amber); padding: 1.2rem 1.5rem; background: var(--cream); border-radius: 0 2px 2px 0; }
+    .tip-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.4rem; }
+    .tip-card p { font-size: 0.8rem; color: var(--text-body); line-height: 1.6; }
+    footer { background: var(--green-deep); border-top: 1px solid rgba(200,144,42,0.25); padding: 40px 5%; text-align: center; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .footer-links a { color: var(--sand); font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    footer p { color: var(--sand); font-size: 0.78rem; }
+    @media(max-width:760px) { .gate-grid { grid-template-columns: 1fr; } .info-card { position: static; } .species-grid, .tips-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">UPKWS<span>Jungle Safari</span></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#book" class="btn-book">Book Safari</a>
+  </div>
+</nav>
+
+<div class="gate-hero">
+  <div class="gate-hero-bg"></div>
+  <div class="gate-hero-content">
+    <p class="gate-breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; <a href="index.html#gates">Safari Gates</a> &nbsp;›&nbsp; Pauni Gate</p>
+    <h1 class="gate-hero-title">Pauni Gate</h1>
+    <p class="gate-hero-sub">Where the Wainganga River meets the wilderness — a spectacular landscape teeming with riverine wildlife and birdlife.</p>
+  </div>
+</div>
+
+<div class="gate-content">
+  <div class="gate-grid">
+    <div class="gate-body">
+      <p class="section-label">Safari Entry Point</p>
+      <h2 class="section-title">About Pauni Gate</h2>
+      <div class="section-divider"></div>
+      <p>The Pauni Gate serves as the eastern entry into the Umred-Pauni-Karhandla Wildlife Sanctuary, operating under the Pauni Tahsil of Bhandara district. It is the most scenic of the three gates, bordered by the majestic Wainganga River to the northeast and flanked by the Gose Khurd Dam reservoir — creating a rich riverine ecosystem unlike any other zone in the sanctuary.</p>
+      <p>The landscape at the Pauni zone is a beautiful blend of riparian forests, sand bars, rocky outcrops, and grassland patches. The proximity to the river creates a distinctive microhabitat that supports species not commonly found at the other gates, including smooth-coated otters, mugger crocodiles, and a spectacular diversity of water birds and migratory species.</p>
+      <p>The zone is also a significant tiger territory — tigers are regularly seen cooling down by the river's edge during summer safaris, offering photographers and wildlife enthusiasts truly rare and frame-worthy moments.</p>
+
+      <h3>Safari Experience</h3>
+      <p>Pauni safaris traverse riverside forest trails that are unique in character — the sound of flowing water, the scent of sand, and the sight of birds skimming the river surface create an immersive sensory experience. The jeep tracks at Pauni are well-maintained and offer comfortable passage even in the early morning when dew clings to the forest floor.</p>
+      <p>The evening safari at Pauni Gate is particularly magical — as the Wainganga glows amber in the setting sun and tigers emerge from the forest to drink at the river's edge, it creates one of the most dramatic wildlife spectacles in Maharashtra.</p>
+
+      <h3>Birdwatcher's Paradise</h3>
+      <p>Pauni Gate is renowned as the best birdwatching zone in the UPKWS. The combination of river, dam backwater, and riparian forests provides habitat for an extraordinary variety of birds. Over 200 species have been recorded here, including the Indian Skimmer, Woolly-necked Stork, Lesser Adjutant, Pied Kingfisher, and the rare Black-bellied Tern.</p>
+      <p>During winter months (November–February), the sanctuary near Pauni receives migratory birds from Central Asia and Eastern Europe, adding dozens of unusual species to a birdwatcher's list in a single day.</p>
+
+      <h3>Directions to Pauni Gate</h3>
+      <p>Pauni Gate is located approximately 60 km from Nagpur via the Nagpur–Bhandara highway, turning south at Pauni town towards the sanctuary. From Bhandara town, the gate is approximately 20 km to the west. State Transport buses operate from Bhandara Bus Stand to Pauni, from where local auto-rickshaws can take you to the gate. Private vehicles and taxis from Nagpur and Bhandara are a convenient option for safari groups.</p>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <h3>Gate Information</h3>
+        <div class="info-row"><span>Location</span><span>Pauni Tahsil, Bhandara</span></div>
+        <div class="info-row"><span>Distance from Nagpur</span><span>~60 km</span></div>
+        <div class="info-row"><span>Distance from Bhandara</span><span>~20 km</span></div>
+        <div class="info-row"><span>Morning Safari</span><span>5:30 AM – 9:00 AM</span></div>
+        <div class="info-row"><span>Evening Safari</span><span>3:30 PM – 6:30 PM</span></div>
+        <div class="info-row"><span>Closed</span><span>Thursdays & Monsoon</span></div>
+        <div class="info-row"><span>Season</span><span>Oct – June</span></div>
+        <div class="info-row"><span>Famous For</span><span>River & Birdlife</span></div>
+        <a href="index.html#book" class="book-btn">Book Safari at This Gate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wildlife-strip">
+  <div class="wildlife-strip-inner">
+    <p class="section-label">Wildlife Spotted Here</p>
+    <h2 class="section-title">Common Sightings at Pauni Gate</h2>
+    <div class="species-grid">
+      <div class="species-tag"><span class="emoji">🐯</span>Bengal Tiger</div>
+      <div class="species-tag"><span class="emoji">🐊</span>Mugger Crocodile</div>
+      <div class="species-tag"><span class="emoji">🦦</span>Smooth-coated Otter</div>
+      <div class="species-tag"><span class="emoji">🦢</span>Woolly-necked Stork</div>
+      <div class="species-tag"><span class="emoji">🐟</span>Indian Skimmer</div>
+      <div class="species-tag"><span class="emoji">🦜</span>Pied Kingfisher</div>
+      <div class="species-tag"><span class="emoji">🦌</span>Sambar & Spotted Deer</div>
+      <div class="species-tag"><span class="emoji">🦅</span>Osprey</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding: 60px 5%; background: var(--white);">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <p class="section-label">Safari Tips</p>
+    <h2 class="section-title">Before You Visit</h2>
+    <div class="tips-grid">
+      <div class="tip-card"><h4>Best for River Safaris</h4><p>The riverside trails at Pauni offer a uniquely scenic experience. Carry a good camera — the light near water is extraordinary.</p></div>
+      <div class="tip-card"><h4>Bring a Field Guide</h4><p>With 200+ bird species, a field guide to Indian birds will make your Pauni visit infinitely more rewarding.</p></div>
+      <div class="tip-card"><h4>Summer Tiger Sightings</h4><p>March to May is peak season for spotting tigers near the Wainganga riverbank as they cool down in the heat.</p></div>
+      <div class="tip-card"><h4>Winter Migrants</h4><p>November to February is ideal for seeing rare migratory birds. Combine with a Nagpur city visit for a memorable trip.</p></div>
+      <div class="tip-card"><h4>Insect Repellent</h4><p>The riverine zone has more insects, particularly in the early morning. Apply repellent before your safari begins.</p></div>
+      <div class="tip-card"><h4>Book Well in Advance</h4><p>Pauni Gate has limited daily permits. Advance booking (at least a week ahead in peak season) is strongly recommended.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="karhandla-gate.html">Karhandla Gate</a>
+    <a href="gothangaon-gate.html">Gothangaon Gate</a>
+    <a href="pauni-gate.html">Pauni Gate</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#book">Book Safari</a>
+  </div>
+  <p>© 2025 UPKWS Jungle Safari. All rights reserved. | www.upkwsjunglesafari.com</p>
+</footer>
+</body>
+</html>

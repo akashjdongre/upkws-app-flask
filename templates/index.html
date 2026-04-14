@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book jungle safari at Umred Pauni Karhandla Wildlife Sanctuary – 3 gates, tiger sightings, morning & evening slots. 50 km from Nagpur, Maharashtra." />
+  <title>UPKWS Jungle Safari – Umred Pauni Karhandla Wildlife Sanctuary</title>
+
+  <!-- DNS prefetch & preconnect for third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <!-- Preload LCP hero image (above-the-fold, largest element) -->
+  <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=75&fm=webp&auto=compress"
+        fetchpriority="high" />
+
+  <!-- Load fonts non-blocking -->
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@400;600&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@400;600&display=swap" />
+  </noscript>
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    UPKWS<span>Jungle Safari</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#book" class="btn-book">Book Safari</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="hero-leaves"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Umred · Pauni · Karhandla</div>
+    <h1 class="hero-title">Into the Wild<br><em>Heart of Maharashtra</em></h1>
+    <p class="hero-sub">Witness majestic tigers, rare wildlife, and the raw splendour of central India's most captivating jungle sanctuary.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn-primary">Book Your Safari</a>
+      <a href="#about" class="btn-outline">Explore Sanctuary</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal-left">
+      <img src="{{ url_for('static', filename='images/wild-boar.webp') }}"
+           alt="Tiger in Umred Karhandla"
+           width="800" height="520"
+           loading="lazy" decoding="async" />
+      <div class="about-accent"></div>
+      <div class="about-badge">50km<span>from Nagpur</span></div>
+    </div>
+    <div class="about-text reveal-right">
+      <p class="section-label">About the Sanctuary</p>
+      <h2 class="section-title">Umred Pauni Karhandla Wildlife Sanctuary</h2>
+      <div class="section-divider"></div>
+      <p>The Umred-Pauni-Karhandla Wildlife Sanctuary (UPKWS) spans across Pauni Tahsil in Bhandara district and the Umred, Kuhi, and Bhiwapur Talukas of Nagpur district — nestled beautifully along the Wainganga River.</p>
+      <p>Situated approximately 50 km from Nagpur and 60 km from Bhandara, this pristine habitat is intricately connected to the Tadoba Andhari Tiger Reserve. It lies just 40 km north of Tadoba-Andhari and 50 km southwest of Nagzira Wildlife Sanctuary.</p>
+      <p>The sanctuary hosts breeding tigers, herds of Gaur, wild dogs, flying squirrels, pangolins, honey badgers, and an extraordinary diversity of bird species — making it one of Maharashtra's most significant conservation treasures.</p>
+      <div class="about-stats stagger-children">
+        <div class="stat">
+          <div class="stat-num" data-target="3">0</div>
+          <div class="stat-label">Safari Gates</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-target="35">0</div>
+          <div class="stat-label">Tiger Sightings</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-target="300">0</div>
+          <div class="stat-label">Bird Species</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFARI GATES -->
+<section id="gates" style="padding:100px 5%;">
+  <div style="text-align:center; margin-bottom:0.5rem;" class="reveal">
+    <p class="section-label">Entry Points</p>
+    <h2 class="section-title" style="color:var(--cream)">Safari Gates</h2>
+    <div class="section-divider center"></div>
+  </div>
+  <div class="gates-grid stagger-children">
+    <div class="gate-card">
+      <img src="{{ url_for('static', filename='images/karhandla-gate.webp') }}"
+           alt="Karhandla Gate" width="600" height="360" loading="lazy" decoding="async" />
+      <div class="gate-overlay">
+        <h3>Karhandla Gate</h3>
+        <p>The most popular entry with prime tiger territory and dense teak forests. Ideal for morning safaris.</p>
+        <a href="{{url_for('karhandla_gate')}}" class="gate-link">Explore Gate →</a>
+      </div>
+    </div>
+    <div class="gate-card">
+      <img src="{{ url_for('static', filename='images/gothangaon-gate.webp') }}"
+           alt="Gothangaon Gate" width="600" height="360" loading="lazy" decoding="async" />
+      <div class="gate-overlay">
+        <h3>Gothangaon Gate</h3>
+        <p>Gateway to lush green valleys and watering holes. Known for Gaur and wild dog sightings.</p>
+        <a href="{{url_for('gothangaon_gate')}}" class="gate-link">Explore Gate →</a>
+      </div>
+    </div>
+    <div class="gate-card">
+      <img src="{{ url_for('static', filename='images/pauni-gate.webp') }}"
+           alt="Pauni Gate" width="600" height="360" loading="lazy" decoding="async" />
+      <div class="gate-overlay">
+        <h3>Pauni Gate</h3>
+        <p>Nestled along the Wainganga riverbanks, offering spectacular landscape and diverse birdlife.</p>
+        <a href="{{url_for('pauni_gate')}}" class="gate-link">Explore Gate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX BANNER 1 -->
+<div class="parallax-banner">
+  <div class="parallax-banner-bg" id="parallax-bg-1"></div>
+  <div class="parallax-banner-content reveal">
+    <blockquote>"In the jungle, every shadow holds a secret — and every silence tells a story."</blockquote>
+    <cite>Umred · Pauni · Karhandla Wildlife Sanctuary</cite>
+  </div>
+</div>
+
+<!-- WILDLIFE -->
+<section id="wildlife">
+  <div class="wildlife-inner">
+    <div class="wildlife-intro reveal">
+      <p class="section-label">Flora &amp; Fauna</p>
+      <h2 class="section-title">Wildlife You'll Encounter</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--text-body);line-height:1.85;margin-bottom:2rem;">From elusive big cats to extraordinary rare species, the sanctuary harbours life at every turn. Every safari is a unique story unfolding in the wild.</p>
+    </div>
+    <div class="wildlife-cards stagger-children">
+      <div class="wildlife-card">
+        <img src="{{ url_for('static', filename='images/gothangaon-gate.webp') }}"
+             alt="Tiger" width="400" height="200" loading="lazy" decoding="async" />
+        <div class="wildlife-card-body">
+          <h4>Tiger</h4>
+          <p>Apex predator of the sanctuary. Regular sightings of breeding tigers and cubs.</p>
+        </div>
+      </div>
+      <div class="wildlife-card">
+        <img src="{{ url_for('static', filename='images/gaur.webp') }}"
+             alt="Gaur" width="400" height="200" loading="lazy" decoding="async" />
+        <div class="wildlife-card-body">
+          <h4>Indian Gaur</h4>
+          <p>Massive herds of Gaur roam the meadows, especially near watering holes.</p>
+        </div>
+      </div>
+      <div class="wildlife-card">
+        <img src="{{ url_for('static', filename='images/leopard.webp') }}"
+             alt="Leopard" width="400" height="200" loading="lazy" decoding="async" />
+        <div class="wildlife-card-body">
+          <h4>Leopard</h4>
+          <p>Stealthy and elusive, leopards are spotted on rocky outcrops and tree canopies.</p>
+        </div>
+      </div>
+      <div class="wildlife-card">
+        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=400&q=70&fm=webp&auto=compress"
+             alt="Wild Dogs" width="400" height="200" loading="lazy" decoding="async" />
+        <div class="wildlife-card-body">
+          <h4>Wild Dogs (Dholes)</h4>
+          <p>Pack-hunting dholes are a rare and thrilling sight in these forests.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO REACH -->
+<section id="reach">
+  <div class="reach-inner">
+    <p class="section-label reveal">Getting Here</p>
+    <h2 class="section-title reveal">How To Reach</h2>
+    <div class="section-divider reveal"></div>
+    <div class="reach-cards stagger-children">
+      <div class="reach-card">
+        <div class="reach-icon">✈️</div>
+        <h3>By Flight</h3>
+        <p>Dr. Babasaheb Ambedkar International Airport in Nagpur is the nearest airport, approximately 68 km from the sanctuary. Taxis and cabs are readily available for onward travel.</p>
+      </div>
+      <div class="reach-card">
+        <div class="reach-icon">🚂</div>
+        <h3>By Train</h3>
+        <p>Nagpur Railway Station is the closest rail hub, just a 1.5-hour drive away. Regular trains connect Nagpur to major cities across India.</p>
+      </div>
+      <div class="reach-card">
+        <div class="reach-icon">🚌</div>
+        <h3>By Bus</h3>
+        <p>Regular buses run every 30 minutes from Bhandara Bus Stand (5 AM – 8 PM). The sanctuary is approx. 50 km from Nagpur and 60 km from Bhandara by road.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX BANNER 2 -->
+<div class="parallax-banner">
+  <div class="parallax-banner-bg" id="parallax-bg-2"
+       style="background-image: linear-gradient(to right, rgba(10,22,6,0.8) 0%, rgba(10,22,6,0.45) 50%, rgba(10,22,6,0.8) 100%), url('{{ url_for('static', filename='images/parallax2.jpg') }}');"></div>
+  <div class="parallax-banner-content reveal">
+    <blockquote>"The tiger does not proclaim his tigritude — he pounces."</blockquote>
+    <cite>Maharashtra's Jungle Country</cite>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">Photo Gallery</p>
+    <h2 class="section-title" style="color:var(--cream)">Moments in the Wild</h2>
+    <div class="section-divider center"></div>
+  </div>
+  <div class="gallery-grid stagger-children">
+    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=1200&q=80&fm=webp&auto=compress')">
+      <img src="https://images.unsplash.com/photo-1561731216-c3a4d99437d5?w=800&q=70&fm=webp&auto=compress"
+           alt="Tiger" width="800" height="260" loading="lazy" decoding="async" />
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('{{ url_for('static', filename='images/leopard.webp') }}')">
+      <img src="{{ url_for('static', filename='images/leopard.webp') }}"
+           alt="Leopard" width="400" height="260" loading="lazy" decoding="async" />
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('{{ url_for('static', filename='images/sambar.webp') }}')">
+      <img src="{{ url_for('static', filename='images/sambar.webp') }}"
+           alt="Wildlife" width="400" height="260" loading="lazy" decoding="async" />
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('{{ url_for('static', filename='images/gaur.webp') }}')">
+      <img src="{{ url_for('static', filename='images/gaur.webp') }}"
+           alt="Forest" width="800" height="260" loading="lazy" decoding="async" />
+      <div class="gallery-item-overlay"><span class="gallery-zoom">⊕</span></div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- BOOK SAFARI -->
+<section id="book">
+  <div class="book-inner">
+    <div class="book-header reveal">
+      <p class="section-label" style="text-align:center">Safari Booking</p>
+      <h2 class="section-title" style="text-align:center">Book Your Safari</h2>
+      <div class="section-divider center"></div>
+      <p style="text-align:center; color:var(--text-body); max-width:480px; margin:0 auto;">Complete the steps below to reserve your jungle safari experience. All fields are mandatory.</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="step-progress">
+      <div class="step-dot active" id="dot1">1<span class="step-label">Personal</span></div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-dot" id="dot2">2<span class="step-label">Safari</span></div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-dot" id="dot3">3<span class="step-label">Schedule</span></div>
+      <div class="step-line" id="line3"></div>
+      <div class="step-dot" id="dot4">4<span class="step-label">Confirm</span></div>
+    </div>
+
+    <!-- Step 1: Personal Details -->
+    <div class="form-step active" id="step1">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="f-name" placeholder="Enter your full name" />
+        <p class="form-error" id="err-name">Please enter your name.</p>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="f-email" placeholder="you@example.com" />
+        <p class="form-error" id="err-email">Please enter a valid email address.</p>
+      </div>
+      <div class="form-group">
+        <label>Contact Number</label>
+        <input type="tel" id="f-contact" placeholder="+91 98765 43210" />
+        <p class="form-error" id="err-contact">Please enter your contact number.</p>
+      </div>
+      <div class="form-nav">
+        <span></span>
+        <button class="btn-next" onclick="nextStep(1)">Next: Safari Details →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Safari Gate -->
+    <div class="form-step" id="step2">
+      <div class="form-group">
+        <label>Select Safari Gate</label>
+        <select id="f-gate">
+          <option value="">— Choose a Gate —</option>
+          <option value="Karhandla Gate">Karhandla Gate</option>
+          <option value="Gothangaon Gate">Gothangaon Gate</option>
+          <option value="Pauni Gate">Pauni Gate</option>
+        </select>
+        <p class="form-error" id="err-gate">Please select a safari gate.</p>
+      </div>
+      <div class="form-group">
+        <label>Number of Guests</label>
+        <select id="f-guests">
+          <option value="">— Number of Guests —</option>
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5 Guests</option>
+          <option value="6">6 Guests</option>
+        </select>
+        <p class="form-error" id="err-guests">Please select number of guests.</p>
+      </div>
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep(2)">← Back</button>
+        <button class="btn-next" onclick="nextStep(2)">Next: Schedule →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Date & Slot -->
+    <div class="form-step" id="step3">
+      <div class="form-group">
+        <label>Safari Date</label>
+        <input type="date" id="f-date" />
+        <p class="form-error" id="err-date">Please select a date.</p>
+      </div>
+      <div class="form-group">
+        <label>Preferred Slot</label>
+        <div class="slot-btns">
+          <div class="slot-btn" id="slot-morning" onclick="selectSlot('Morning')">🌅 Morning Slot<br><small style="font-size:0.72rem;color:#666">5:30 AM – 9:00 AM</small></div>
+          <div class="slot-btn" id="slot-evening" onclick="selectSlot('Evening')">🌇 Evening Slot<br><small style="font-size:0.72rem;color:#666">3:30 PM – 6:30 PM</small></div>
+        </div>
+        <p class="form-error" id="err-slot">Please select a time slot.</p>
+      </div>
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep(3)">← Back</button>
+        <button class="btn-next" onclick="nextStep(3)">Review Booking →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Review & Confirm -->
+    <div class="form-step" id="step4">
+      <div class="review-box">
+        <div class="review-row"><span>Name</span><span id="rv-name">—</span></div>
+        <div class="review-row"><span>Email</span><span id="rv-email">—</span></div>
+        <div class="review-row"><span>Contact</span><span id="rv-contact">—</span></div>
+        <div class="review-row"><span>Safari Gate</span><span id="rv-gate">—</span></div>
+        <div class="review-row"><span>Guests</span><span id="rv-guests">—</span></div>
+        <div class="review-row"><span>Date</span><span id="rv-date">—</span></div>
+        <div class="review-row"><span>Slot</span><span id="rv-slot">—</span></div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-body);text-align:center;margin-bottom:1.5rem;">Please verify your details before submitting. A confirmation email will be sent to your inbox.</p>
+      <div class="form-nav">
+        <button class="btn-prev" onclick="prevStep(4)">← Edit</button>
+        <button class="btn-next" onclick="submitBooking()">Confirm &amp; Submit 🌿</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Success -->
+    <div class="form-step" id="step5">
+      <div class="success-box">
+        <div class="success-icon">🌿</div>
+        <h3>Booking Confirmed!</h3>
+        <p>Thank you for booking your safari with UPKWS. A confirmation email has been sent to your inbox. Our team will reach out to you shortly with further details.</p>
+        <br />
+        <a href="#home" class="btn-primary" style="display:inline-block;margin-top:1rem;">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="max-width:1100px;margin:0 auto;" class="reveal">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title" style="color:var(--cream)">Contact Us</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+      <p>Have questions about safari timings, availability, or special arrangements? Our team is here to help you plan the perfect wildlife experience.</p>
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>Umred-Pauni-Karhandla Wildlife Sanctuary<br />Nagpur District, Maharashtra, India</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 7040460567<br />+91 9823276642</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p>info@upkwsjunglesafari.com</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Safari Timings</h4>
+          <p>Morning: 5:30 AM – 9:00 AM<br />Evening: 3:30 PM – 6:30 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap reveal-right">
+      <form onsubmit="submitContact(event)">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Full Name" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Your message..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">UPKWS Jungle Safari</div>
+      <p>Experience the untamed wilderness of Umred-Pauni-Karhandla Wildlife Sanctuary — Maharashtra's hidden gem of biodiversity and tiger country.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#book">Book Safari</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Safari Gates</h4>
+      <ul>
+        <li><a href="karhandla-gate.html">Karhandla Gate</a></li>
+        <li><a href="gothangaon-gate.html">Gothangaon Gate</a></li>
+        <li><a href="pauni-gate.html">Pauni Gate</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#reach">How to Reach</a></li>
+        <li><a href="#wildlife">Wildlife</a></li>
+        <li><a href="#gates">Safari Gates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 UPKWS Jungle Safari. All rights reserved.</span>
+    <span>www.upkwsjunglesafari.com</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+  /* ── NAV ── */
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  /* ── rAF-THROTTLED SCROLL HANDLER ── */
+  let rafPending = false;
+  const nav = document.getElementById('main-nav');
+  const heroBg = document.querySelector('.hero-bg');
+
+  function onScroll() {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      rafPending = false;
+      const sy = window.scrollY;
+      nav.style.background = sy > 60 ? 'rgba(26,46,18,0.98)' : 'rgba(26,46,18,0.92)';
+      if (heroBg) heroBg.style.transform = `translateY(${sy * 0.42}px)`;
+      document.querySelectorAll('.parallax-banner-bg').forEach(el => {
+        const rect = el.closest('.parallax-banner').getBoundingClientRect();
+        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+        el.style.transform = `translateY(${center * 0.28}px)`;
+      });
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── SCROLL REVEAL ── */
+  const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children';
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll(revealSelectors).forEach(el => io.observe(el));
+
+  /* ── COUNTER ANIMATION ── */
+  function animateCounter(el) {
+    if (el._counted) return; el._counted = true;
+    const target = +el.dataset.target;
+    const suffix = target === 3 ? '' : '+';
+    const duration = 1600;
+    const start = performance.now();
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(e * target) + (p === 1 ? suffix : '');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const statObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+        statObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.about-stats').forEach(el => statObs.observe(el));
+
+  /* ── FLOATING LEAVES on Hero ── */
+  (function () {
+    const hero = document.getElementById('home');
+    const canvas = document.createElement('div');
+    canvas.style.cssText = 'position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1';
+    hero.appendChild(canvas);
+    const emojis = ['🍃', '🌿', '🍂'];
+    const s = document.createElement('style');
+    s.textContent = '@keyframes leafFall{0%{transform:translateY(-60px) translateX(0) rotate(0deg);opacity:0}5%{opacity:.35}90%{opacity:.15}100%{transform:translateY(110vh) translateX(var(--drift)) rotate(520deg);opacity:0}}';
+    document.head.appendChild(s);
+    for (let i = 0; i < 16; i++) {
+      const leaf = document.createElement('span');
+      leaf.textContent = emojis[i % 3];
+      const size = 13 + Math.random() * 18;
+      leaf.style.cssText = `position:absolute;top:0;left:${Math.random() * 100}%;font-size:${size}px;opacity:0;animation:leafFall ${10 + Math.random() * 18}s ${Math.random() * 14}s linear infinite;--drift:${(Math.random() - 0.5) * 200}px;pointer-events:none;user-select:none`;
+      canvas.appendChild(leaf);
+    }
+  })();
+
+  /* ── LIGHTBOX ── */
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ── STEP FORM ── */
+  let currentStep = 1;
+  let selectedSlot = '';
+
+  function selectSlot(slot) {
+    selectedSlot = slot;
+    document.getElementById('slot-morning').classList.toggle('selected', slot === 'Morning');
+    document.getElementById('slot-evening').classList.toggle('selected', slot === 'Evening');
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById('dot' + i);
+      dot.className = 'step-dot';
+      if (i < n) dot.classList.add('done');
+      else if (i === n) dot.classList.add('active');
+    }
+    for (let i = 1; i <= 3; i++) {
+      const line = document.getElementById('line' + i);
+      line.className = 'step-line';
+      if (i < n) line.classList.add('done');
+    }
+    currentStep = n;
+    document.getElementById('book').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function clearErr(id) {
+    document.getElementById(id).style.display = 'none';
+    document.getElementById(id.replace('err-', 'f-')).classList.remove('error');
+  }
+
+  function showErr(fieldId, errId) {
+    document.getElementById(errId).style.display = 'block';
+    document.getElementById(fieldId).classList.add('error');
+  }
+
+  function nextStep(from) {
+    if (from === 1) {
+      let ok = true;
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const contact = document.getElementById('f-contact').value.trim();
+      if (!name) { showErr('f-name', 'err-name'); ok = false; } else clearErr('err-name');
+      if (!email || !/\S+@\S+\.\S+/.test(email)) { showErr('f-email', 'err-email'); ok = false; } else clearErr('err-email');
+      if (!contact) { showErr('f-contact', 'err-contact'); ok = false; } else clearErr('err-contact');
+      if (ok) showStep(2);
+    } else if (from === 2) {
+      let ok = true;
+      const gate = document.getElementById('f-gate').value;
+      const guests = document.getElementById('f-guests').value;
+      if (!gate) { showErr('f-gate', 'err-gate'); ok = false; } else clearErr('err-gate');
+      if (!guests) { showErr('f-guests', 'err-guests'); ok = false; } else clearErr('err-guests');
+      if (ok) showStep(3);
+    } else if (from === 3) {
+      let ok = true;
+      const date = document.getElementById('f-date').value;
+      if (!date) { showErr('f-date', 'err-date'); ok = false; } else clearErr('err-date');
+      if (!selectedSlot) { document.getElementById('err-slot').style.display = 'block'; ok = false; } else document.getElementById('err-slot').style.display = 'none';
+      if (ok) {
+        document.getElementById('rv-name').textContent = document.getElementById('f-name').value;
+        document.getElementById('rv-email').textContent = document.getElementById('f-email').value;
+        document.getElementById('rv-contact').textContent = document.getElementById('f-contact').value;
+        document.getElementById('rv-gate').textContent = document.getElementById('f-gate').value;
+        document.getElementById('rv-guests').textContent = document.getElementById('f-guests').value + ' Guest(s)';
+        document.getElementById('rv-date').textContent = new Date(document.getElementById('f-date').value).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+        document.getElementById('rv-slot').textContent = selectedSlot + ' Safari';
+        showStep(4);
+      }
+    }
+  }
+
+  function prevStep(from) { showStep(from - 1); }
+
+  function submitBooking() {
+    const formData = new FormData();
+    formData.append('name', document.getElementById('f-name').value);
+    formData.append('email', document.getElementById('f-email').value);
+    formData.append('contact', document.getElementById('f-contact').value);
+    formData.append('gate', document.getElementById('f-gate').value);
+    formData.append('guests', document.getElementById('f-guests').value);
+    formData.append('date', document.getElementById('f-date').value);
+    formData.append('slot', selectedSlot);
+    fetch('send_booking.php', { method: 'POST', body: formData }).then(() => {}).catch(() => {});
+    showStep(5);
+  }
+
+  function submitContact(e) {
+    e.preventDefault();
+    e.target.innerHTML = '<p style="color:var(--amber-light);font-family:var(--font-display);font-size:1.1rem;">✓ Message sent! We\'ll be in touch soon.</p>';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('f-date').min = today;
+  });
+</script>
+</body>
+</html>
